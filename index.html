@@ -11,8 +11,8 @@
     :root {
       --bg: #0b1020;
       --panel: #121831;
-      --accent: #facc15; /* azul claro */
-      --accent-strong: #16a34a;
+      --accent: #facc15; /* amarelo */
+      --accent-strong: #16a34a; /* verde */
       --text: #e5e7eb;
       --muted: #9ca3af;
       --ok: #34d399; /* green */
@@ -72,6 +72,8 @@
 
     /* Badges */
     .pill { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; border:1px solid rgba(125,211,252,0.22); background: rgba(125,211,252,0.08); color: var(--accent); font-weight:700; font-size:15px; }
+    /* spacing between the hero pill and the H1 */
+    .hero .hero-pill { margin-bottom: 18px; }
 
     /* Responsive */
     @media (max-width: 900px) {
@@ -80,43 +82,43 @@
       .hiw { grid-template-columns: 1fr; }
     }
 
-/* --- Mobile/desktop polish overrides --- */
-:root { scroll-behavior: smooth; }
+    /* --- Mobile/desktop polish overrides --- */
+    :root { scroll-behavior: smooth; }
 
-header { padding-left: max(0px, env(safe-area-inset-left)); padding-right: max(0px, env(safe-area-inset-right)); }
+    header { padding-left: max(0px, env(safe-area-inset-left)); padding-right: max(0px, env(safe-area-inset-right)); }
 
-.button { min-height: 44px; padding: 12px 18px; border-radius: 12px; }
-.nav a.cta { min-height: 44px; border-radius: 12px; }
+    .button { min-height: 44px; padding: 12px 18px; border-radius: 12px; }
+    .nav a.cta { min-height: 44px; border-radius: 12px; }
 
-.brand-badge { border-radius: 10px; overflow: hidden; background: none; }
+    .brand-badge { border-radius: 10px; overflow: hidden; background: none; }
 
-.phone { max-width: 360px; margin-top: 12px; }
-.screen { min-height: 480px; }
+    .phone { max-width: 360px; margin-top: 12px; }
+    .screen { min-height: 480px; }
 
-@media (max-width: 900px) {
-  .container { width: min(1100px, 94%); }
-  .hero { padding: 24px 0 12px; gap: 18px; }
-  .brand { gap: 8px; }
-  .brand-badge { width: 44px !important; height: 44px !important; border-radius: 12px !important; }
-  .hero h1 { font-size: clamp(24px, 7vw, 40px); }
-  .hero p { font-size: 16px; }
-  .actions { gap: 10px; }
-  .phone { max-width: 340px; margin-left: auto; margin-right: auto; }
-}
+    @media (max-width: 900px) {
+      .container { width: min(1100px, 94%); }
+      .hero { padding: 24px 0 12px; gap: 18px; }
+      .brand { gap: 8px; }
+      .brand-badge { width: 44px !important; height: 44px !important; border-radius: 12px !important; }
+      .hero h1 { font-size: clamp(24px, 7vw, 40px); }
+      .hero p { font-size: 16px; }
+      .actions { gap: 10px; }
+      .phone { max-width: 340px; margin-left: auto; margin-right: auto; }
+    }
 
-@media (min-width: 1200px) {
-  .container { width: min(1120px, 88%); }
-  .hero { padding-top: 64px; }
-}
+    @media (min-width: 1200px) {
+      .container { width: min(1120px, 88%); }
+      .hero { padding-top: 64px; }
+    }
 
-/* --- spacing adjustments requested --- */
-.hero { padding-top: 36px; }            /* ~30% less than previous desktop 64px */
-.phone { margin-top: 6px; }             /* tighter above the phone mock */
-@media (max-width: 900px) {
-  .hero { padding-top: 15px; }          /* ~30% less than previous 24px */
-  .phone { margin-top: 4px; }
-}
-</style>
+    /* --- spacing adjustments requested --- */
+    .hero { padding-top: 36px; }            /* ~30% less than previous desktop 64px */
+    .phone { margin-top: 6px; }             /* tighter above the phone mock */
+    @media (max-width: 900px) {
+      .hero { padding-top: 15px; }          /* ~30% less than previous 24px */
+      .phone { margin-top: 4px; }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -135,12 +137,11 @@ header { padding-left: max(0px, env(safe-area-inset-left)); padding-right: max(0
     <!-- HERO -->
     <section class="hero">
       <div>
-        <span class="pill">Lista de compras no WhatsApp</span>
+        <span class="pill hero-pill">Lista de compras no WhatsApp</span>
         <h1>Uma lista de compras compartilhada.</h1>
         <p>Qualquer pessoa da família pode adicionar itens quando lembrar. No dia das compras, a lista já está pronta. Tudo pelo WhatsApp — sem novos apps, sem complicação.</p>
         <div class="actions">
           <a class="button primary" id="cta-whatsapp" target="_blank" href="#comece">Quero usar no WhatsApp</a>
-
         </div>
       </div>
       <div>
@@ -210,10 +211,7 @@ header { padding-left: max(0px, env(safe-area-inset-left)); padding-right: max(0
         <p style="margin:6px 0 0; color:var(--muted)">Envie uma mensagem no WhatsApp e crie sua Listinha em menos de 1 minuto.</p>
       </div>
       <div class="actions">
-        <!-- TODO: Substitua o NÚMERO pelo seu número do WhatsApp Cloud API -->
-        <a class="button primary" id="cta-whats-2" target="_blank" href="https://wa.me/5511912705543?text=Quero%20criar%20minha%20Listinha">Iniciar no WhatsApp</a>
-        <!-- TODO: Substitua a URL abaixo pela URL do Render da sua app (rota /view) -->
-
+        <a class="button primary" id="cta-whats-2" target="_blank" href="https://wa.me/5511912705543?text=listinha">Iniciar no WhatsApp</a>
       </div>
     </section>
 
@@ -234,13 +232,13 @@ header { padding-left: max(0px, env(safe-area-inset-left)); padding-right: max(0
     // Atualiza ano
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Opcional: reforçar o foco do CTA com âncora
+    // Rolagem para CTA
     document.getElementById('cta-whatsapp').addEventListener('click', (e) => {
       const el = document.getElementById('comece');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Micro-simulação: adiciona bolhas novas para mostrar fluxo (enter item -> ver lista -> usar na compra)
+    // Micro-simulação
     (function simulateFlow() {
       const screen = document.getElementById('screen');
       const steps = [
