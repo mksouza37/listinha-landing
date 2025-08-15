@@ -277,7 +277,7 @@
       if (!btn) return;
 
       const number = '5511912705543';
-      const msg = 'Apague esse texto, escreva: "listinha seu nome" e envie.\nEx.: listinha Patrícia';
+      const msg = 'Apague esse texto, escreva: "listinha <telefone> <seu nome>" e envie.\nEx.: listinha 11999999999 Patrícia';
 
       btn.href = `https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
     })();
