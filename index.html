@@ -97,7 +97,7 @@
 
     @media (max-width: 900px) {
       .container { width: min(1100px, 94%); }
-      .hero { padding: 24px 0 12px; gap: 18px; }
+      .hero { padding-top: 24px; gap: 18px; }
       .brand { gap: 8px; }
       .brand-badge { width: 44px !important; height: 44px !important; border-radius: 12px !important; }
       .hero h1 { font-size: clamp(24px, 7vw, 40px); }
@@ -140,9 +140,7 @@
         <span class="pill hero-pill">Lista de compras no WhatsApp</span>
         <h1>Uma lista de compras compartilhada.</h1>
         <p>Qualquer pessoa da família pode adicionar itens quando lembrar. No dia das compras, a lista já está pronta. Tudo pelo WhatsApp — sem novos apps, sem complicação.</p>
-        <div class="actions">
-          <a class="button primary" id="cta-whatsapp" target="_blank" href="#comece">Quero usar no WhatsApp</a>
-        </div>
+        <div class="actions"><!-- (button removed as requested) --></div>
       </div>
       <div>
         <!-- PHONE MOCK / DEMO -->
@@ -236,11 +234,14 @@
     // Atualiza ano
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Rolagem para CTA
-    document.getElementById('cta-whatsapp').addEventListener('click', (e) => {
-      const el = document.getElementById('comece');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    });
+    // Rolagem para CTA (guarded since the button was removed)
+    const cta1 = document.getElementById('cta-whatsapp');
+    if (cta1) {
+      cta1.addEventListener('click', (e) => {
+        const el = document.getElementById('comece');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
 
     // Micro-simulação
     (function simulateFlow() {
@@ -268,6 +269,20 @@
         i++;
         if (i >= steps.length) clearInterval(timer);
       }, 1300);
+    })();
+
+    // Set WhatsApp CTA with prefilled, emoji-friendly message (Option B)
+    (function setWaCta(){
+      const btn = document.getElementById('cta-whats-2');
+      if (!btn) return;
+
+      const number = '5511912705543';
+      const msg =
+        '👋 Bem-vindo! Envie *listinha* mais o seu nome.\n' +
+        'Ex.: listinha Patrícia\n\n' +
+        '✅ No mesmo instante sua lista estará criada e você receberá orientações sobre como utilizar.';
+
+      btn.href = `https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
     })();
   </script>
 </body>
