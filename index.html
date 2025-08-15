@@ -271,19 +271,17 @@
       }, 1300);
     })();
 
-    // Set WhatsApp CTA with prefilled, emoji-friendly message (Option B)
+    // Set WhatsApp CTA with your custom prompt (Option B)
     (function setWaCta(){
       const btn = document.getElementById('cta-whats-2');
       if (!btn) return;
 
       const number = '5511912705543';
-      const msg =
-        '👋 Bem-vindo! Envie *listinha* mais o seu nome.\n' +
-        'Ex.: listinha Patrícia\n\n' +
-        '✅ No mesmo instante sua lista estará criada e você receberá orientações sobre como utilizar.';
+      const msg = 'Apague esse texto, escreva: "listinha seu nome" e envie.\nEx.: listinha Patrícia';
 
       btn.href = `https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
     })();
+
   </script>
 </body>
 </html>
